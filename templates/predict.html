@@ -3,9 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Laptop Specification Form</title>
+    <style>
+        /* Basic styling for the form */
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 1em;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        form div {
+            margin-bottom: 1em;
+        }
+        label {
+            margin-bottom: .5em;
+            color: #333333;
+        }
+        input, select {
+            border: 1px solid #ccc;
+            padding: .5em;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 0.7em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    
+
+    <h2>Laptop Specification Form</h2>
+    <form action="{{url_for('predict')}}" method="post">
+
+        <div>
+            <label for="company">Company:</label>
+            <input type="text" id="company" name="company" placeholder="Enter company name" required>
+        </div>
+
+        <div>
+            <label for="lap_type">Laptop Type:</label>
+            <input type="text" id="lap_type" name="lap_type" placeholder="Enter laptop type" required>
+        </div>
+
+        <div>
+            <label for="ram">RAM (in GB):</label>
+            <input type="number" id="ram" name="ram" min="1" placeholder="Enter RAM size" required>
+        </div>
+
+        <div>
+            <label for="weight">Weight (in kg):</label>
+            <input type="number" id="weight" name="weight" step="0.1" placeholder="Enter weight" required>
+        </div>
+
+        <div>
+            <label for="touchscreen">Touchscreen:</label>
+            <select id="touchscreen" name="touchscreen" required>
+                <option value="">Select option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="ips">IPS Display:</label>
+            <select id="ips" name="ips" required>
+                <option value="">Select option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="ppi">PPI (Pixels per Inch):</label>
+            <input type="number" id="ppi" name="ppi" placeholder="Enter PPI" required>
+        </div>
+
+        <div>
+            <label for="cpu">CPU:</label>
+            <input type="text" id="cpu" name="cpu" placeholder="Enter CPU model" required>
+        </div>
+
+        <div>
+            <label for="hdd">HDD (in GB):</label>
+            <input type="number" id="hdd" name="hdd" placeholder="Enter HDD size" required>
+        </div>
+
+        <div>
+            <label for="ssd">SSD (in GB):</label>
+            <input type="number" id="ssd" name="ssd" placeholder="Enter SSD size" required>
+        </div>
+
+        <div>
+            <label for="gpu">GPU:</label>
+            <input type="text" id="gpu" name="gpu" placeholder="Enter GPU model" required>
+        </div>
+
+        <div>
+            <label for="os">Operating System:</label>
+            <input type="text" id="os" name="os" placeholder="Enter OS" required>
+        </div>
+
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    {{prediction_text}}
 </body>
 </html>
