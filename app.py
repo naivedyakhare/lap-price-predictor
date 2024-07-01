@@ -32,7 +32,6 @@ def predict():
 
     output = np.exp(model.predict(final_data))
 
-
     return render_template("index.html", prediction_text = f"The price of the laptop is {output[0]}")
 
 
