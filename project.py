@@ -1,6 +1,4 @@
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 import numpy as np
 
 data = pd.read_csv("dataset.csv")
@@ -28,7 +26,7 @@ data['X_res'] = data['X_res'].astype('int')
 data['Y_res'] = data['Y_res'].astype('int')
 
 data['ppi'] = (((data['X_res']**2) + (data['Y_res']**2))**0.5/data['Inches']).astype('float')
-data.corr()['Price'].sort_values(ascending=False)
+data.corr(numeric_only=True)['Price'].sort_values(ascending=False)
 
 data.drop(columns = ['ScreenResolution', 'Inches','X_res','Y_res'], inplace=True)
 
