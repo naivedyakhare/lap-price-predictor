@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-data = pd.read_csv("dataset.csv")
+data = pd.read_csv("data/dataset.csv")
 
 
 data.drop(columns=['Unnamed: 0'],inplace=True)
@@ -124,12 +124,12 @@ print('R2 score:',r2_score(y_test,y_pred))
 print('MAE:',mean_absolute_error(y_test,y_pred))
 
 
-data.to_csv("df.csv", index=False)
+data.to_csv("data/df.csv", index=False)
 pickle.dump(pipe,open('pipe.pkl','wb'))
 
 import streamlit as st
 
-df = pd.read_csv("df.csv")
+df = pd.read_csv("data/df.csv")
 pipe = pickle.load(open("pipe.pkl", "rb"))
 st.title("Laptop Price Predictor")
 
