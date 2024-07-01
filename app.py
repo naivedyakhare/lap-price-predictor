@@ -13,18 +13,27 @@ model = pk.load(open("pipe.pkl", "rb"))
 def home():
     return render_template("index.html")
 
-@app.route('/predict', methods = ["POST"])
+
+@app.route("/predict", methods=["POST"])
 def predict():
     
-    data = request.json['data']
-    print("////////////////////////////////////////")
-    specs = []
-    for key in data:
-        specs.append(data[key])
+    data = [request.form[key] for key in request.form]
     
-    specs = np.array(specs)
     
-    return jsonify(np.exp(model.predict(specs.reshape(1,12))[0]))
+    data[4] = "0" if data[4] == "No" else "1"
+    data[5] = "0" if data[4] == "No" else "1"
+
+    for i in range(len(data)):
+        if data[i].isnumeric():
+            data[i] = float(data[i])
+
+    
+    final_data = np.array(data).reshape(1,12)
+
+    output = np.exp(model.predict(final_data))
+
+
+    return render_template("index.html", prediction_text = f"The price of the laptop is {output[0]}")
 
 
 if __name__ == "__main__":
