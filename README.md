@@ -7,6 +7,8 @@
 3. [VSCodeIDE](https://code.visualstudio.com/)
 4. [GitCLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)
 
+<b>Project Link:</b> https://price-predictor-for-laptop-32fe9b25e0a1.herokuapp.com/
+
 Create a new environment
 
 ```
